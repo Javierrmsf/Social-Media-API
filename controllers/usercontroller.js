@@ -59,10 +59,10 @@ updateUser({ params, body }, res) {
                     return res.status(404).json({ message: 'error' });
                 }
 
-                // bonus: return Thought.deleteMany({ _id: { $in: dbUserData.thoughts } })
+
             })
             .then(() => {
-                res.json({ message: 'error' });
+                res.json({ message: 'deleted' });
             })
             .catch(err => res.status(400).json(err));
     },
