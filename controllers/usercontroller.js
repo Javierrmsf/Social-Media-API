@@ -59,6 +59,8 @@ updateUser({ params, body }, res) {
         User.findOneAndDelete({ _id: params.id })
             .then(dbUserData => {
                 if (!dbUserData) {
+
+
                     return res.status(404).json({ message: 'error' });
                 }
 
@@ -72,7 +74,9 @@ updateUser({ params, body }, res) {
 ///////////////////////////////////////////
 
     addFriend({ params }, res) {
-        User.findOneAndUpdate({ _id: params.UserId }, { $addToSet: { friends: params.FriendId } }, { runValidators: true })
+        User.findOneAndUpdate({ _id: params.UserId },
+             { $addToSet: { friends: params.FriendId } },
+              { runValidators: true })
             .then(dbUserData => {
                 if (!dbUserData) {
                     res.status(404).json({ message: 'error' });
