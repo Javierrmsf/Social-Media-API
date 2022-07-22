@@ -52,6 +52,9 @@ updateUser({ params, body }, res) {
 ////////////////////////7
 
 
+
+
+
     deleteUser({ params }, res) {
         User.findOneAndDelete({ _id: params.id })
             .then(dbUserData => {
